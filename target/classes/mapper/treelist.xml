@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fykj.jxks.mapper.TreeListDao">
+    <!--根据科目下的章数-->
+    <select id="getChapterByProjectNum" resultType="Map">
+        select distinct a.chapternum,a.chaptername from project a where 1=1
+        <if  test="null != #{project}">
+            and a.projectnum = #{project}
+        </if>
+    </select>
+
+    <select id="getSectionList" resultType="Map">
+        select distinct a.sectionname,a.sectionnum from project a where 1=1
+        <if  test="null != #{project}">
+            and a.projectnum = #{project}
+        </if>
+        <if  test="null != #{chapter}">
+            and a.chapternum = #{chapter}
+        </if>
+    </select>
+
+    <select id="getCourseList" resultType="Map">
+        select distinct a.coursename,a.coursenum,a.url from project a where 1=1
+        <if  test="null != #{project}">
+            and a.projectnum = #{project}
+        </if>
+        <if  test="null != #{chapter}">
+            and a.chapternum = #{chapter}
+        </if>
+        <if  test="null != #{section}">
+            and a.sectionnum = #{section}
+        </if>
+    </select>
+
+
+
+
+
+
+    <!--根据章数下的节数-->
+    <select id="getSectionsByChapter" resultType="String">
+        select distinct a.sectionnum from project a where 1=1
+        <if  test="null != project">
+            and a.projectnum = #{project}
+        </if>
+        <if  test="null != chapter">
+            and a.chapternum = #{chapter}
+        </if>
+    </select>
+    <!--根据章数下的节数-->
+    <select id="getCourseByChapter" resultType="com.fykj.jxks.entity.Project">
+        select * from project a where 1=1
+        <if  test="null != project">
+            and a.projectnum = #{project}
+        </if>
+        <if  test="null != chapter">
+            and a.chapternum = #{chapter}
+        </if>
+        <if  test="null != section">
+            and a.sectionnum = #{section}
+        </if>
+    </select>
+
+
+</mapper>
