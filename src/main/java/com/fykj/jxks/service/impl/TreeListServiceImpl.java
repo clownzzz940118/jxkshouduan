@@ -1,5 +1,6 @@
 package com.fykj.jxks.service.impl;
 
+import com.fykj.jxks.entity.User;
 import com.fykj.jxks.mapper.TreeListDao;
 import com.fykj.jxks.service.ITreeListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,4 +74,5 @@ public class TreeListServiceImpl implements ITreeListService {
         }
         return treeListDao.getCourseList(project,chapter,section);
     }
+
 }

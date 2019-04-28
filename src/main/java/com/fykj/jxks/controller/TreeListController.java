@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.Map;
 
 @RestController
 @ResponseBody
@@ -29,11 +28,8 @@ public class TreeListController {
         return JSON.toJSONString(treeListService.getSectionList(project,chapter)) ;
     }
 
-
     @PostMapping("/getCourseList")
     public String getCourseList(String project,String chapter,String section){
         return JSON.toJSONString(treeListService.getCourseList(project,chapter,section)) ;
     }
-
-
 }

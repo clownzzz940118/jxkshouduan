@@ -1,7 +1,10 @@
 package com.fykj.jxks.service;
 
+import com.fykj.jxks.entity.User;
+
 import java.util.List;
 import java.util.Map;
+
 
 public interface ITreeListService {
 

@@ -34,32 +34,4 @@
 
 
 
-
-
-
-    <!--根据章数下的节数-->
-    <select id="getSectionsByChapter" resultType="String">
-        select distinct a.sectionnum from project a where 1=1
-        <if  test="null != project">
-            and a.projectnum = #{project}
-        </if>
-        <if  test="null != chapter">
-            and a.chapternum = #{chapter}
-        </if>
-    </select>
-    <!--根据章数下的节数-->
-    <select id="getCourseByChapter" resultType="com.fykj.jxks.entity.Project">
-        select * from project a where 1=1
-        <if  test="null != project">
-            and a.projectnum = #{project}
-        </if>
-        <if  test="null != chapter">
-            and a.chapternum = #{chapter}
-        </if>
-        <if  test="null != section">
-            and a.sectionnum = #{section}
-        </if>
-    </select>
-
-
 </mapper>
